@@ -23,6 +23,9 @@ class Hand:
     def getHand(self):
         return self.__cards
 
+    def addCards(self, newCards: list[Card]):
+        self.__cards = newCards
+
     def __lt__(self, otherHand):
         return self.getValue() < otherHand.getValue()
 

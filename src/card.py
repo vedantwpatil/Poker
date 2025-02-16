@@ -3,6 +3,9 @@ class Card:
         self.__suit = suit
         self.__value = value
 
+    def __str__(self) -> str:
+        return f"Suit: {self.getSuit()}, Value: {self.getValue()}"
+
     def __lt__(self, otherCard):
         return self.getValue() < otherCard.getValue()
 

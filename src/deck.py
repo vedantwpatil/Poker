@@ -6,6 +6,9 @@ class Deck:
     def __init__(self, deck: list[Card]) -> None:
         self.__deck = deck
 
+    def __str__(self) -> str:
+        return f"Deck: {self.getDeck()}"
+
     def getDeck(self):
         return self.__deck
 
@@ -14,12 +17,13 @@ class Deck:
 
     def setupDeck(self):
         deck = self.getDeck()
-        deck = self.shuffleDeck(deck)
+        deck = self.shuffleDeck()
 
         self.setDeck(deck)
 
-    def shuffleDeck(self, deck: list[Card]):
-        for i in range(len(deck), 1):
+    def shuffleDeck(self):
+        deck = self.getDeck()
+        for i in range(len(deck) - 1, 1, -1):
             j = int(random.random() * i)
 
             temp = deck[i]
@@ -28,14 +32,11 @@ class Deck:
 
         return deck
 
-    def splitDeck(self):
-        pass
-
     def addCards(self):
         deck = self.getDeck()
 
-        for i in range(3):
-            for j in range(9):
+        for i in range(4):
+            for j in range(10):
                 suit = ""
                 num = j + 1
 
